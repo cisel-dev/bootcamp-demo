@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: carts
-        image: cloud.canister.io:5000/qba/carts:0.4.8
+        image: public.ecr.aws/k3l4a4s8/socks-demo/carts:0.4.8
         env:
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
@@ -91,7 +91,7 @@ spec:
     spec:
       containers:
       - name: carts-db
-        image: cloud.canister.io:5000/qba/mongo
+        image: public.ecr.aws/k3l4a4s8/socks-demo/mongo
         ports:
         - name: mongo
           containerPort: 27017
@@ -148,7 +148,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: cloud.canister.io:5000/qba/catalogue:0.3.5
+        image: public.ecr.aws/k3l4a4s8/socks-demo/catalogue:0.3.5
         command: ["/app"]
         args:
         - -port=80
@@ -221,7 +221,7 @@ spec:
     spec:
       containers:
       - name: catalogue-db
-        image: cloud.canister.io:5000/qba/catalogue-db:0.3.0
+        image: public.ecr.aws/k3l4a4s8/socks-demo/catalogue-db:0.3.0
         env:
           - name: MYSQL_ROOT_PASSWORD
             value: fake_password
@@ -265,7 +265,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: cloud.canister.io:5000/qba/front-end:0.3.12
+        image: public.ecr.aws/k3l4a4s8/socks-demo/front-end:0.3.12
         resources:
           limits:
             cpu: 300m
@@ -337,7 +337,7 @@ spec:
     spec:
       containers:
       - name: orders
-        image: cloud.canister.io:5000/qba/orders:0.4.7
+        image: public.ecr.aws/k3l4a4s8/socks-demo/orders:0.4.7
         env:
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
@@ -405,7 +405,7 @@ spec:
     spec:
       containers:
       - name: orders-db
-        image: cloud.canister.io:5000/qba/mongo
+        image: public.ecr.aws/k3l4a4s8/socks-demo/mongo
         ports:
         - name: mongo
           containerPort: 27017
@@ -462,7 +462,7 @@ spec:
     spec:
       containers:
       - name: payment
-        image: cloud.canister.io:5000/qba/payment:0.4.3
+        image: public.ecr.aws/k3l4a4s8/socks-demo/payment:0.4.3
         resources:
           limits:
             cpu: 200m
@@ -532,7 +532,7 @@ spec:
     spec:
       containers:
       - name: queue-master
-        image: cloud.canister.io:5000/qba/queue-master:0.3.1
+        image: public.ecr.aws/k3l4a4s8/socks-demo/queue-master:0.3.1
         env:
          - name: JAVA_OPTS
            value: -Xms64m -Xmx128m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom -Dspring.zipkin.enabled=false
@@ -586,7 +586,7 @@ spec:
     spec:
       containers:
       - name: rabbitmq
-        image: cloud.canister.io:5000/qba/rabbitmq:3.6.8-management
+        image: public.ecr.aws/k3l4a4s8/socks-demo/rabbitmq:3.6.8-management
         ports:
         - containerPort: 15672
           name: management
@@ -603,7 +603,7 @@ spec:
               - DAC_OVERRIDE
           readOnlyRootFilesystem: true
       - name: rabbitmq-exporter
-        image: cloud.canister.io:5000/qba/rabbitmq-exporter
+        image: public.ecr.aws/k3l4a4s8/socks-demo/rabbitmq-exporter
         ports:
         - containerPort: 9090
           name: exporter
@@ -654,7 +654,7 @@ spec:
     spec:
       containers:
       - name: session-db
-        image: cloud.canister.io:5000/qba/redis:alpine
+        image: public.ecr.aws/k3l4a4s8/socks-demo/redis:alpine
         ports:
         - name: redis
           containerPort: 6379
@@ -704,7 +704,7 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: cloud.canister.io:5000/qba/shipping:0.4.8
+        image: public.ecr.aws/k3l4a4s8/socks-demo/shipping:0.4.8
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
@@ -775,7 +775,7 @@ spec:
     spec:
       containers:
       - name: user
-        image: cloud.canister.io:5000/qba/user:0.4.7
+        image: public.ecr.aws/k3l4a4s8/socks-demo/user:0.4.7
         resources:
           limits:
             cpu: 300m
@@ -849,7 +849,7 @@ spec:
     spec:
       containers:
       - name: user-db
-        image: cloud.canister.io:5000/qba/user-db:0.3.0
+        image: public.ecr.aws/k3l4a4s8/socks-demo/user-db:0.3.0
 
         ports:
         - name: mongo
